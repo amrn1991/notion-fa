@@ -1,7 +1,14 @@
-function Spacer() {
-  return (
-    <div>Spacer</div>
-  )
-}
+import styles from "./Spacer.module.css";
 
-export default Spacer
+type SpacerProps = {
+  handleClick(): void;
+  showHint: boolean;
+};
+
+export const Spacer = ({ handleClick, showHint }: SpacerProps) => {
+  return (
+    <div className={styles.spacer} onClick={handleClick}>
+      {showHint && "برای ساخت پاراگراف کلیک کنید"}
+    </div>
+  );
+};
