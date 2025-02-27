@@ -1,5 +1,6 @@
 import { PageStore } from "./types";
 import { create } from 'zustand'
+import { arrayMove } from "@dnd-kit/sortable"
 
 const usePageStore = create<PageStore>()((set) => ({
   nodes: [],
@@ -26,6 +27,11 @@ const usePageStore = create<PageStore>()((set) => ({
     const newNodes = [...state.nodes];
     newNodes.splice(index, 1)
     return { ...state, nodes: newNodes }
+  }),
+  reorderNodes: (id1, id2) => set((state) => {
+    const index1 = state.nodes.findIndex(node => node.id === id1)
+    const index2 = state.nodes.findIndex(node => node.id === id2)
+    return { ...state, nodes: arrayMove(state.nodes, index1, index2) }
   }),
   setTitle: (title) => set((state) => ({ ...state, title })),
   setCoverImage: (cover) => set((state) => ({ ...state, cover })),
