@@ -6,10 +6,10 @@ import {nanoid} from 'nanoid';
 type TitleProps = {
   title: string;
   changePageTitle(title: string): void;
-  addNode(node: NodeData, index: number): void;
+  addNode(index: number, node: NodeData): void;
 };
 
-export const Title = ({title, changePageTitle, addNode}: TitleProps) => {
+export default function Title ({title, changePageTitle, addNode}: TitleProps) {
   const headerRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const Title = ({title, changePageTitle, addNode}: TitleProps) => {
         onKeyDown={(event) => {
           if (event.key === 'Enter') {
             event.preventDefault();
-            addNode({type: 'text', id: nanoid(), value: ''}, 0);
+            addNode(0, {type: 'text', id: nanoid(), value: ''});
           }
         }}
       />

@@ -1,9 +1,9 @@
-import Cover from './components/Page/Cover'
+import Page from './components/Page/Page'
 
 function App() {
   return (
     <>
-      <Cover />
+      <Page />
     </>
   )
 }
