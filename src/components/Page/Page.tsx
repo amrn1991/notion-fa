@@ -3,7 +3,7 @@ import {useFocusedNodeIndex} from '../../utils/useFocusedNodeIndex';
 import Cover from './Cover';
 import Spacer from './Spacer';
 import Title from './Title';
-import BasicNode from '../Node/BasicNode';
+import NodeTypeSwitcher from '../Node/NodeTypeSwitcher';
 import usePageStore from '../../utils/usePageState';
 
 export default function Page() {
@@ -19,7 +19,7 @@ export default function Page() {
         <Title addNode={addNode} title={title} changePageTitle={setTitle} />
 
         {nodes.map((node, index) => (
-          <BasicNode
+          <NodeTypeSwitcher
             key={node.id}
             node={node}
             index={index}
