@@ -2,27 +2,18 @@ import styles from './Node.module.css';
 import {NodeData} from '../../utils/types';
 import {useRef, useEffect, FormEventHandler, KeyboardEventHandler} from 'react';
 import {nanoid} from 'nanoid';
+import usePageStore from '../../utils/usePageState';
 
 type BasicNodeProps = {
   node: NodeData;
-  isFocused: boolean;
   index: number;
-  addNode(index: number, node: NodeData): void;
-  removeNodeByIndex(index: number): void;
-  changeNodeValue(index: number, value: string): void;
+  isFocused: boolean;
   updateFocusedIndex(index: number): void;
 };
 
-export default function BasicNode({
-  node,
-  isFocused,
-  index,
-  addNode,
-  removeNodeByIndex,
-  changeNodeValue,
-  updateFocusedIndex,
-}: BasicNodeProps) {
+export default function BasicNode({node, isFocused, index, updateFocusedIndex}: BasicNodeProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
+  const {addNode, changeNodeValue, removeNodeByIndex} = usePageStore();
 
   useEffect(() => {
     if (nodeRef.current && document.activeElement !== nodeRef.current) {

@@ -13,3 +13,16 @@ export type Page = {
   nodes: NodeData[],
   cover: string,
 }
+
+export interface PageStore {
+  nodes: NodeData[]
+  title: string
+  cover: string
+  addNode(index: number, node: NodeData): void
+  removeNodeByIndex(index: number): void
+  changeNodeType(index: number, type: NodeType): void,
+  changeNodeValue(index: number, value: string): void,
+  setTitle(title: string): void,
+  setCoverImage(cover: string): void,
+  setNodes(nodes: NodeData[]): void,
+}
