@@ -1,8 +1,8 @@
 import {nanoid} from 'nanoid';
-import {useFocusedNodeIndex} from '../../utils/useFocusedNodeIndex';
+import {useFocusedNodeIndex} from '../../hooks/useFocusedNodeIndex';
 import {DndContext, DragOverlay, DragEndEvent} from '@dnd-kit/core';
 import {SortableContext, verticalListSortingStrategy} from '@dnd-kit/sortable';
-import {useAppState} from '../../utils/AppStateContext';
+import {useAppState} from '../../context/AppStateContext';
 import Cover from './Cover';
 import Spacer from './Spacer';
 import Title from './Title';

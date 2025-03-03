@@ -1,7 +1,7 @@
 import {createFileRoute} from '@tanstack/react-router';
 import Page from '../components/Page/Page';
 import Private from '../components/Auth/Private';
-import {AppStateProvider} from '../utils/AppStateContext';
+import {AppStateProvider} from '../context/AppStateContext';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,

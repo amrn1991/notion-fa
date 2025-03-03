@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {NodeType} from '../../utils/types';
-import {useOverflowsScreenBottom} from '../../utils/useOverflowsScreenBottom';
+import {useOverflowsScreenBottom} from '../../hooks/useOverflowsScreenBottom';
 import styles from './CommandPanel.module.css';
 import cx from 'classnames';
 

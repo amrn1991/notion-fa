@@ -1,6 +1,6 @@
 import {ChangeEvent, useEffect, useRef} from 'react';
 import {NodeData} from '../../utils/types';
-import {useAppState} from '../../utils/AppStateContext';
+import {useAppState} from '../../context/AppStateContext';
 import {uploadImage} from '../../utils/uploadImage';
 import FileImage from '../FileImage';
 import cx from 'classnames';

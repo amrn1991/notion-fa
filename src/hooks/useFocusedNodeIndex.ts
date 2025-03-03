@@ -1,5 +1,5 @@
 import { useEffect, useState, Dispatch, SetStateAction } from "react";
-import { NodeData } from "./types";
+import { NodeData } from "../utils/types";
 
 type UseFocusedNodeIndexProps = {
   nodes: NodeData[];

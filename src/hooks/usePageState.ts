@@ -1,6 +1,6 @@
 import { arrayMove } from "@dnd-kit/sortable";
-import { supabase } from "./SupabaseClient";
-import { NodeData, NodeType, Page } from "./types";
+import { supabase } from "../utils/SupabaseClient";
+import { NodeData, NodeType, Page } from "../utils/types";
 import { useSyncedState } from "./useSyncedState";
 
 type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any

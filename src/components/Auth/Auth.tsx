@@ -1,7 +1,7 @@
 import {useState, FormEvent} from 'react';
 import {Navigate} from '@tanstack/react-router';
 import {supabase} from '../../utils/SupabaseClient';
-import {useAuthSession} from '../../utils/AuthContext';
+import {useAuthSession} from '../../context/AuthContext';
 import styles from '../../utils/common.module.css';
 
 export default function Auth() {

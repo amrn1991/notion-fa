@@ -1,7 +1,7 @@
 import {createRoot} from 'react-dom/client';
 import {RouterProvider, createRouter} from '@tanstack/react-router';
 import {routeTree} from './routeTree.gen';
-import {AuthSessionProvider} from './utils/AuthContext';
+import {AuthSessionProvider} from './context/AuthContext';
 import './index.css';
 
 // Set up a Router instance
@@ -10,11 +10,7 @@ const router = createRouter({
   defaultPreload: 'intent',
   scrollRestoration: true,
   InnerWrap: ({children}) => {
-    return (
-      <AuthSessionProvider>
-        {children}
-      </AuthSessionProvider>
-    );
+    return <AuthSessionProvider>{children}</AuthSessionProvider>;
   },
 });
 

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {NodeData} from '../../utils/types';
 import {useNavigate} from '@tanstack/react-router';
-import {useAppState} from '../../utils/AppStateContext';
+import {useAppState} from '../../context/AppStateContext';
 import {supabase} from '../../utils/SupabaseClient';
 import cx from 'classnames';
 import styles from './Node.module.css';
@@ -59,4 +59,4 @@ export default function PageNode({node, isFocused, index}: PageNodeProps) {
       📄 {pageTitle}
     </div>
   );
-};
+}

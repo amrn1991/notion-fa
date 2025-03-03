@@ -4,7 +4,7 @@ import {nanoid} from 'nanoid';
 import styles from './Node.module.css';
 import cx from 'classnames';
 import CommandPanel from './CommandPanel';
-import { useAppState } from '../../utils/AppStateContext';
+import {useAppState} from '../../context/AppStateContext';
 
 type BasicNodeProps = {
   node: NodeData;

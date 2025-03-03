@@ -1,6 +1,6 @@
 import {ReactElement} from 'react';
 import {Navigate} from '@tanstack/react-router';
-import { useAuthSession } from '../../utils/AuthContext';
+import {useAuthSession} from '../../context/AuthContext';
 
 type PrivateProps = {
   component: ReactElement;
