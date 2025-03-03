@@ -1,6 +1,6 @@
 import {Page} from './types';
 import {useMatch} from '@tanstack/react-router';
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import {supabase} from './SupabaseClient';
 import startPageScaffold from './startPageData.json';
 import styles from './common.module.css';
@@ -16,8 +16,8 @@ export function withInitialState<TProps>(
   WrappedComponent: React.ComponentType<PropsWithoutInjected<TProps> & InjectedProps>
 ) {
   return (props: PropsWithoutInjected<TProps>) => {
-    const match = useMatch({from: '/$slug', shouldThrow: false});
-    const pageSlug = match ? match.params.slug : 'start';
+    const match = useMatch({from: '/$id', shouldThrow: false});
+    const pageSlug = match ? match.params.id : 'start';
 
     const [initialState, setInitialState] = useState<Page | null>();
     const [isLoading, setIsLoading] = useState(true);

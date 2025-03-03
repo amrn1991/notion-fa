@@ -9,8 +9,7 @@ import Title from './Title';
 import NodeContainer from '../Node/NodeContainer';
 
 export default function PageComponent() {
-  const {title, nodes, addNode, setTitle, reorderNodes} = useAppState();
-  console.log({title})
+  const {title, nodes, cover, addNode, setTitle, setCoverImage, reorderNodes} = useAppState();
   const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
     nodes,
   });
@@ -24,7 +23,7 @@ export default function PageComponent() {
 
   return (
     <>
-      <Cover />
+      <Cover filePath={cover} changePageCover={setCoverImage} />
       <div>
         <Title addNode={addNode} title={title} changePageTitle={setTitle} />
         <DndContext onDragEnd={handleDragEvent}>
