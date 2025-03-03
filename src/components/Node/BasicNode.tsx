@@ -3,8 +3,8 @@ import {useRef, useEffect, FormEventHandler, KeyboardEventHandler} from 'react';
 import {nanoid} from 'nanoid';
 import styles from './Node.module.css';
 import cx from 'classnames';
-import usePageStore from '../../utils/usePageState';
 import CommandPanel from './CommandPanel';
+import { useAppState } from '../../utils/AppStateContext';
 
 type BasicNodeProps = {
   node: NodeData;
@@ -16,7 +16,7 @@ type BasicNodeProps = {
 export default function BasicNode({node, isFocused, index, updateFocusedIndex}: BasicNodeProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
   const showCommandPanel = isFocused && node?.value?.match(/^\//);
-  const {addNode, changeNodeValue, removeNodeByIndex, changeNodeType} = usePageStore();
+  const {addNode, changeNodeValue, removeNodeByIndex, changeNodeType} = useAppState();
 
   useEffect(() => {
     if (nodeRef.current && document.activeElement !== nodeRef.current) {

@@ -18,14 +18,14 @@
 
 .list {
   position: relative;
-  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .list::after {
   content: '';
   position: absolute;
   bottom: 50%;
-  left: 6px;
+  right: 6px;
   width: 6px;
   height: 6px;
   background-color: #222;

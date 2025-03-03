@@ -2,14 +2,15 @@ import {nanoid} from 'nanoid';
 import {useFocusedNodeIndex} from '../../utils/useFocusedNodeIndex';
 import {DndContext, DragOverlay, DragEndEvent} from '@dnd-kit/core';
 import {SortableContext, verticalListSortingStrategy} from '@dnd-kit/sortable';
+import {useAppState} from '../../utils/AppStateContext';
 import Cover from './Cover';
 import Spacer from './Spacer';
 import Title from './Title';
 import NodeContainer from '../Node/NodeContainer';
-import usePageStore from '../../utils/usePageState';
 
-export default function Page() {
-  const {title, nodes, addNode, setTitle, reorderNodes} = usePageStore();
+export default function PageComponent() {
+  const {title, nodes, addNode, setTitle, reorderNodes} = useAppState();
+  console.log({title})
   const [focusedNodeIndex, setFocusedNodeIndex] = useFocusedNodeIndex({
     nodes,
   });
@@ -28,7 +29,7 @@ export default function Page() {
         <Title addNode={addNode} title={title} changePageTitle={setTitle} />
         <DndContext onDragEnd={handleDragEvent}>
           <SortableContext items={nodes} strategy={verticalListSortingStrategy}>
-            {nodes.map((node, index) => (
+            {nodes?.map((node, index) => (
               <NodeContainer
                 key={node.id}
                 node={node}
@@ -43,7 +44,6 @@ export default function Page() {
 
         <Spacer
           handleClick={() => {
-            console.log(nodes);
             addNode(nodes.length, {type: 'text', value: '', id: nanoid()});
           }}
           showHint={!nodes.length}
