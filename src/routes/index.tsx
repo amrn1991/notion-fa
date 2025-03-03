@@ -1,14 +1,21 @@
 import {createFileRoute} from '@tanstack/react-router';
 import Page from '../components/Page/Page';
+import Private from '../components/Auth/Private';
+import {AppStateProvider} from '../utils/AppStateContext';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
 });
 
 function HomeComponent() {
+  console.log('index');
   return (
-    <div className="p-2">
-      <Page />
-    </div>
+    <Private
+      component={
+        <AppStateProvider>
+          <Page />
+        </AppStateProvider>
+      }
+    />
   );
 }

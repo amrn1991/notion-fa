@@ -1,13 +1,13 @@
 import {ReactElement} from 'react';
-import {useAuthStore} from '../../utils/useAuth';
 import {Navigate} from '@tanstack/react-router';
+import { useAuthSession } from '../../utils/AuthContext';
 
 type PrivateProps = {
   component: ReactElement;
 };
 
 export default function Private({component}: PrivateProps) {
-  const {session, loading} = useAuthStore();
+  const {session, loading} = useAuthSession();
 
   if (loading) {
     return <>در حال پردازش</>;

@@ -1,17 +1,13 @@
-import {useState, FormEvent, useEffect} from 'react';
-import {useAuthStore} from '../../utils/useAuth';
+import {useState, FormEvent} from 'react';
 import {Navigate} from '@tanstack/react-router';
 import {supabase} from '../../utils/SupabaseClient';
+import {useAuthSession} from '../../utils/AuthContext';
 import styles from '../../utils/common.module.css';
 
 export default function Auth() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const {session, subscribe} = useAuthStore();
-
-  useEffect(() => {
-    supabase.auth.onAuthStateChange(subscribe);
-  }, []);
+  const {session} = useAuthSession();
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
